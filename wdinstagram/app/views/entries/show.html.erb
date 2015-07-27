@@ -1,2 +1,16 @@
 <h1>show page</h1>
-<p><%= @entry.author %></p>
+<div class="entry">
+  <div class="entry-header">
+    <span><span class="entry-posted-by">Posted by&nbsp;</span><%= @entry.author %></span>
+    <span><%= @entry.date_taken %></span>
+  </div>
+  <img class="entry-photo" src="<%= @entry.photo_url %>">
+  <div class="entry-edit-delete">
+    <%= link_to "Edit", edit_entry_path %> 
+    <!-- delete -->
+    <form action="/entries/<%= @entry.id %>" method="post">
+      <input name="_method" type="hidden" value="delete">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</div>
